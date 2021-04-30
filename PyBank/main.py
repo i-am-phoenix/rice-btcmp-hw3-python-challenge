@@ -10,6 +10,10 @@ csvpath=os.path.join(in_folder,in_file)
 # Initialize row count
 nrows=0
 net_total=0
+gr_inc=0
+gr_dec=0
+inc_mnth=""
+dec_mnth=""
 with open(csvpath) as csvfile:
     csvreader=csv.reader(csvfile,delimiter=",")
     #print(csvreader)
@@ -22,7 +26,16 @@ with open(csvpath) as csvfile:
         #print(row[1])
         nrows=nrows+1
         net_total=net_total + int(row[1])
+        if int(row[1])>gr_inc:
+            gr_inc=int(row[1])
+            inc_mnth=str(row[0])
+        if int(row[1])<gr_dec:
+            gr_dec=int(row[1])
+            dec_mnth=str(row[0])
+        
 
 print("Financial Analysis\n----------------------------")
 print(f"Total Months: {nrows}")
 print(f"Total: ${net_total}")
+print(f"Average  Change: $ tbc")
+print(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})")
