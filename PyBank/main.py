@@ -37,6 +37,6 @@ with open(csvpath) as csvfile:
 print("Financial Analysis\n----------------------------")
 print(f"Total Months: {nrows}")
 print(f"Total: ${net_total}")
-print(f"Average  Change: $ tbc")
+print(f"Average  Change: ${round(net_total/nrows,2)}")
 print(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})")
 print(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
