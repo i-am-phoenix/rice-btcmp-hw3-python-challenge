@@ -18,6 +18,10 @@ with open(csvpath) as csvfile:
     #print(f"CSV file header: {csv_header}")
 
     for row in csvreader:
+        #print(row)
+        #print(row[1])
         nrows=nrows+1
+        net_total=net_total + int(row[1])
 
 print(nrows)
+print(net_total)
