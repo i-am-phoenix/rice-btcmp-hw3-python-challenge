@@ -23,5 +23,6 @@ with open(csvpath) as csvfile:
         nrows=nrows+1
         net_total=net_total + int(row[1])
 
-print(nrows)
-print(net_total)
+print("Financial Analysis\n----------------------------")
+print(f"Total Months: {nrows}")
+print(f"Total: ${net_total}")
