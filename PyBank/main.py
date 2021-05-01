@@ -44,6 +44,7 @@ with open(txtpath,"w") as txtfile:
     txtfile.write(f"Average  Change: ${round(net_total/nrows,2)}\n")
     txtfile.write(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})\n")
     txtfile.write(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
+txtfile.close()
 
 # Two options for outputting analysis summary within the terminal:
 # - through publication of the TXT file content
