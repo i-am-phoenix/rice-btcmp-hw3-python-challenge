@@ -3,6 +3,7 @@ import csv
 
 in_folder="Resources"
 in_file="budget_data.csv"
+out_file="budget_data_analysis.txt"
 
 csvpath=os.path.join(in_folder,in_file)
 #print(csvpath)
@@ -34,7 +35,21 @@ with open(csvpath) as csvfile:
             dec_mnth=str(row[0])
         
 
-print("Financial Analysis\n----------------------------")
+txtpath=os.path.join(in_folder,out_file)
+# Open file for writing
+with open(txtpath,"w") as txtfile:
+    txtfile.write("Financial Analysis\n----------------------------\n")
+    txtfile.write(f"Total Months: {nrows}\n")
+    txtfile.write(f"Total: ${net_total}\n")
+    txtfile.write(f"Average  Change: ${round(net_total/nrows,2)}\n")
+    txtfile.write(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})\n")
+    txtfile.write(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
+
+# Two options for outputting analysis summary within the terminal:
+# - through publication of the TXT file content
+os.system(f"cat {txtpath}") 
+# - or through explicit reporting into the terminal one-by-one
+print("\nFinancial Analysis\n----------------------------")
 print(f"Total Months: {nrows}")
 print(f"Total: ${net_total}")
 print(f"Average  Change: ${round(net_total/nrows,2)}")
