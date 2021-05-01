@@ -58,4 +58,3 @@ print(f"Total: ${net_total}")
 print(f"Average  Change: ${round(net_total/nrows,2)}")
 print(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})")
 print(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
-
