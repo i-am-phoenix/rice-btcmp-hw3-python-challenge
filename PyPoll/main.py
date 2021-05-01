@@ -39,21 +39,28 @@ with open(txtpath,"w") as txtfile:
     # txtfile.write(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
 txtfile.close()
 # print(len(unq_candidates))
-with open(csvpath) as csvfile:
-    csvreader=csv.reader(csvfile,delimiter=",")
-    #print(csvreader)
+for c in range(len(unq_candidates)):
+        ind_cand_vote=0
+        #print(unq_candidates[c])
+        with open(csvpath) as csvfile:
+            csvreader=csv.reader(csvfile,delimiter=",")
+            #print(csvreader)
 
-    csv_header=next(csvreader)
-    #print(f"CSV file header: {csv_header}")
+            csv_header=next(csvreader)
+            #print(f"CSV file header: {csv_header}")
 
     
-    for c in range(len(unq_candidates)):
-        ind_cand_vote=0
-        for row in csvreader:
-            # print(f"{unq_candidates[c]} - {row[2]}")
-            if row[2]==unq_candidates[c]:
-                ind_cand_vote=ind_cand_vote+1
-        with open(txtpath,"a") as txtfile:        
-            txtfile.write(f"{unq_candidates[c]}: {round(ind_cand_vote/nrows,3)}% ({ind_cand_vote})\n")
-        txtfile.close()    
+    
+            for row in csvreader:
+                
+                if unq_candidates[c] in row:
+                    ind_cand_vote=ind_cand_vote+1
+                    #print(f"{unq_candidates[c]} - {ind_cand_vote} votes")
+            with open(txtpath,"a") as txtfile:        
+                txtfile.write(f"{unq_candidates[c]}: {round(100*ind_cand_vote/nrows,4)}% ({ind_cand_vote})\n")
+
+with open(txtpath,"a") as txtfile:        
+    txtfile.write("-------------------------\n")   
+    txtfile.write("Winner: \n")   
+    txtfile.write("-------------------------\n")    
 os.system(f"cat {txtpath}")
