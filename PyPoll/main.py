@@ -38,6 +38,7 @@ with open(txtpath,"w") as txtfile:
     # txtfile.write(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})\n")
     # txtfile.write(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
 txtfile.close()
+init_cand_vote=0
 # print(len(unq_candidates))
 for c in range(len(unq_candidates)):
         ind_cand_vote=0
@@ -48,9 +49,7 @@ for c in range(len(unq_candidates)):
 
             csv_header=next(csvreader)
             #print(f"CSV file header: {csv_header}")
-
-    
-    
+   
             for row in csvreader:
                 
                 if unq_candidates[c] in row:
@@ -58,9 +57,12 @@ for c in range(len(unq_candidates)):
                     #print(f"{unq_candidates[c]} - {ind_cand_vote} votes")
             with open(txtpath,"a") as txtfile:        
                 txtfile.write(f"{unq_candidates[c]}: {round(100*ind_cand_vote/nrows,4)}% ({ind_cand_vote})\n")
+        if ind_cand_vote>init_cand_vote:
+            init_cand_vote=ind_cand_vote
+            winner=unq_candidates[c]
 
 with open(txtpath,"a") as txtfile:        
     txtfile.write("-------------------------\n")   
-    txtfile.write("Winner: \n")   
+    txtfile.write(f"Winner: {winner}\n")   
     txtfile.write("-------------------------\n")    
 os.system(f"cat {txtpath}")
