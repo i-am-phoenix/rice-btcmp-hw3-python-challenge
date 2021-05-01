@@ -23,13 +23,15 @@ with open(csvpath) as csvfile:
     #print(f"CSV file header: {csv_header}")
 
     for row in csvreader:
-        #print(row)
-        #print(row[1])
+        # Increment row count of rows containing data
         nrows=nrows+1
+        # Calculate running net total of profit/losses
         net_total=net_total + int(row[1])
+        # Run a check to find value of the maximum profit and note corresponding month
         if int(row[1])>gr_inc:
             gr_inc=int(row[1])
             inc_mnth=str(row[0])
+        # Run a check to find value of the maximum loss and note corresponding month
         if int(row[1])<gr_dec:
             gr_dec=int(row[1])
             dec_mnth=str(row[0])
