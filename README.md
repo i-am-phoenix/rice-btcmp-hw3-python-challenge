@@ -16,9 +16,7 @@ Current repository contains two projects where Python default capabilities were 
 The input file contained the following data:
 
 * *Date* column containing date reference provided as a *string* of "Mmm-YYY" format;
-* Profit/Losses column which contained numerical values for profits (>0) and losses (<0)  
-
-<center><img src="PyBank/Analysis/input_data.JPG" alt="input_data" width="20%" align="center"/></center>
+* Profit/Losses column which contained numerical values for profits (>0) and losses (<0) <br><img src="PyBank/Analysis/input_data.JPG" alt="input_data" width="20%" align="center"/>
 
 ### Analysis and output:
 
