@@ -71,7 +71,7 @@ A new `for` loop was then used to process the database with aggregating data for
 
 The overall winner was found by comparing current candidate's total vote count to the prior one (at initial step total individual candidate vote count was set to 0). 
 
-Results of the analysis are output to both standard gitBash output as well as within the output file [election_data_analysis.txt](Resources/election_data_analysis.txt).
+Results of the analysis are output to both standard gitBash output as well as within the output file [election_data_analysis.txt](PyPoll/Resources/election_data_analysis.txt).
 
 ```
 Election Results
