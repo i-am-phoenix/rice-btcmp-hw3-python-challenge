@@ -5,22 +5,23 @@ in_folder="Resources"
 in_file="budget_data.csv"
 out_file="budget_data_analysis.txt"
 
+# Create a file path variable
 csvpath=os.path.join(in_folder,in_file)
 #print(csvpath)
 
-# Initialize row count
+# Initialize row count, net total, greatest increase and decrease and corresponding month identifiers
 nrows=0
 net_total=0
 gr_inc=0
 gr_dec=0
 inc_mnth=""
 dec_mnth=""
+
 with open(csvpath) as csvfile:
     csvreader=csv.reader(csvfile,delimiter=",")
-    #print(csvreader)
 
+    # skip the header prior to reading in the data
     csv_header=next(csvreader)
-    #print(f"CSV file header: {csv_header}")
 
     for row in csvreader:
         # Increment row count of rows containing data
