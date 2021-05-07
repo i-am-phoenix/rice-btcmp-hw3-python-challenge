@@ -39,7 +39,7 @@ Greatest Increase in Profits: Sep-2013 ($-1196225)
 
 As we can see a total of 86 months of data was available to us, with a net total volume of  ~$38.4 millions.
 
-Average of changes in "Profit/Losses" over the entire period was ~$446 thousands, with greatest increase in profits recorded in February 2012 (~ $1.17 million) followed by the greatest loss of ~$1.2 million in September of 2013.
+Average of changes in "Profit/Losses" over the entire period was ~ $446 thousands, with greatest increase in profits recorded in February 2012 ( ~ $1.17 million) followed by the greatest loss of ~ $1.2 million in September of 2013.
 
 ## PyPoll: Modernization of a vote counting process of a small rural town
 
