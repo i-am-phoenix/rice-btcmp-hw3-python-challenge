@@ -22,9 +22,7 @@ The input file contained the following data:
 
 ### Analysis and output:
 
-Developed code utilized for loops to cycle through all available entries in order to identify rows with highest recorded profits and lowest recorded losses. Corresponding value within the *Date* column was then recorded for output.
-
-
+Code utilized *for* loops to cycle through all available entries in order to identify rows with highest recorded profits and lowest recorded losses, while aggregating the "Profit/Losses" volumes for *Net Total* amount and *Average of the Changes* of "Profits/Losses" calculation. Corresponding value within the *Date* column was then noted for output.
 
 Output file [**budget_data_analysis.txt**](Resources/budget_data_analysis.txt) was created to output analysis summary and its content is reflected below:
 
@@ -39,7 +37,9 @@ Greatest Increase in Profits: Feb-2012 ($1170593)
 Greatest Increase in Profits: Sep-2013 ($-1196225) 
 ```
 
-As we can see a total of 86 months of data was available to us, with a total volume of 
+As we can see a total of 86 months of data was available to us, with a net total volume of  ~$38.4 millions.
+
+Average of changes in "Profit/Losses" over the entire period was ~$446 thousands, with greatest increase in profits recorded in February 2012 (~ $1.17 million) followed by the greatest loss of ~$1.2 million in September of 2013.
 
 ## PyPoll: Modernization of a vote counting process of a small rural town
 
