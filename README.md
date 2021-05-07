@@ -18,7 +18,7 @@ The input file contained the following data:
 * *Date* column containing date reference provided as a *string* of "Mmm-YYY" format;
 * Profit/Losses column which contained numerical values for profits (>0) and losses (<0)  
 
-<center><img src="PyBank/Analysis/input_data.JPG" alt="input_data" width="20%" /></center>
+<center><img src="PyBank/Analysis/input_data.JPG" alt="input_data" width="20%" align="center"/></center>
 
 ### Analysis and output:
 
