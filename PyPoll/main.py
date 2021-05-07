@@ -1,68 +1,73 @@
 import os
 import csv
 
+#  Input I/O file/folder names
 in_folder="Resources"
 in_file="election_data.csv"
 out_file="election_data_analysis.txt"
 
+#  Compile full input file path
 csvpath=os.path.join(in_folder,in_file)
 #print(csvpath)
 
-# Initialize row count
+# Initialize row count and unique candidate count
 nrows=0
 unq_candidates=[]
+
+# read in and process the input data
 with open(csvpath) as csvfile:
     csvreader=csv.reader(csvfile,delimiter=",")
-    #print(csvreader)
-
+    
+    # Skip the file header
     csv_header=next(csvreader)
-    #print(f"CSV file header: {csv_header}")
 
     for row in csvreader:
         # Increment row count of rows containing data
-        nrows=nrows+1
+        nrows+=1
         if row[2] not in unq_candidates:
             unq_candidates.append(row[2])
             #print(unq_candidates)
 
-#print(unq_candidates)
-csvfile.close()
-
+# Compile output file path
 txtpath=os.path.join(in_folder,out_file)
-# Open file for writing
+
+# Open output file for writing and write first 4 lines
 with open(txtpath,"w") as txtfile:
     txtfile.write("Election Results\n-------------------------\n")
     txtfile.write(f"Total Votes: {nrows}\n-------------------------\n")
-    # txtfile.write(f"Total: ${net_total}\n")
-    # txtfile.write(f"Average  Change: ${round(net_total/nrows,2)}\n")
-    # txtfile.write(f"Greatest Increase in Profits: {inc_mnth} (${gr_inc})\n")
-    # txtfile.write(f"Greatest Increase in Profits: {dec_mnth} (${gr_dec})")
-txtfile.close()
+ 
+#  Initialize vote counter per candidate 
 init_cand_vote=0
-# print(len(unq_candidates))
+
+# Loop through unique candidates to calculate and output stats
 for c in range(len(unq_candidates)):
         ind_cand_vote=0
-        #print(unq_candidates[c])
+        
+        # Open input file and read in data
         with open(csvpath) as csvfile:
             csvreader=csv.reader(csvfile,delimiter=",")
-            #print(csvreader)
 
+            # Skip the file header
             csv_header=next(csvreader)
-            #print(f"CSV file header: {csv_header}")
-   
+            
+            # With a given candidate name, loop through all rows in file and increment vote count if candidate name matches 
             for row in csvreader:
-                
                 if unq_candidates[c] in row:
-                    ind_cand_vote=ind_cand_vote+1
-                    #print(f"{unq_candidates[c]} - {ind_cand_vote} votes")
+                    ind_cand_vote+=1
+            # Write out (append) current candidate's summary into the output file
             with open(txtpath,"a") as txtfile:        
                 txtfile.write(f"{unq_candidates[c]}: {round(100*ind_cand_vote/nrows,4)}% ({ind_cand_vote})\n")
+        # Check if current candidate's vote count total is greater than the current/previous vote total
+        # If current candidate total votes is larger - declare curent candidate a winner 
         if ind_cand_vote>init_cand_vote:
             init_cand_vote=ind_cand_vote
             winner=unq_candidates[c]
 
+ # Write out (append) name of the overall winner into the output file
 with open(txtpath,"a") as txtfile:        
     txtfile.write("-------------------------\n")   
     txtfile.write(f"Winner: {winner}\n")   
-    txtfile.write("-------------------------\n")    
+    txtfile.write("-------------------------\n")   
+
+# Printout entire summary by displaying the content of the output file within gitBash terminal standard output  
 os.system(f"cat {txtpath}")
